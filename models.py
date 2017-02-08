@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import hashlib
+import time
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/imdb'
@@ -19,7 +20,7 @@ class User(db.Model):
         self.email = email
         self.password = hashlib.md5(password.encode('utf-8')).hexdigest()
         self.active = False
-        self.token = hashlib.md5(datetime.now().encode('utf-8')).hexdigest()
+        self.token = hashlib.md5(str(time.time()).encode('utf-8')).hexdigest()
 
     def __repr__(self):
         return '<User {0}>'.format(self.email)
