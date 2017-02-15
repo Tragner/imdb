@@ -5,14 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>{% block title %}{% endblock %} | IMDB</title>
+<title>{% block title %}{% endblock %} | reffer</title>
     <!--<link rel="icon" type="image/png" href="static/img/favicon.png">-->
 	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #131C20; margin: 2em auto">
 <div class="container">
-    <h1>IMDB</h1>
+    <h1 style="font-family: 'Graduate', cursive; color: cornsilk; font-size: 50px; border-bottom: 2px solid cornsilk">
+        Mis Pelis</h1>
     <div class="container super">
 {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
@@ -26,5 +28,16 @@
 </div>
 <footer>2017</footer>
 </div>
+<script>
+    let alerts = document.querySelectorAll('.alert');
+    let tiempo = 2000;
+    setTimeout(function() {
+        for(alert of alerts) {
+            alert.style.display = 'none';
+        }
+    }, tiempo);
+</script>
+{% block javascript %}
+{% endblock %}
 </body>
 </html>

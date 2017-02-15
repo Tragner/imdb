@@ -1,6 +1,30 @@
 {% extends 'layouts/master.html' %}
 {% block title %}Login{% endblock %}
 {% block body %}
-<h2>Login <a href="{{ url_for('signin') }}" class="btn btn-primary">Sign in</a></h2>
+<div style="color: cornsilk">
+    <div class="row" style="width: 900px">
+        <div class="col-sm-6">
+            <h2>Login</h2>
+            <form action="" method="get" style="max-width: 300px">
+                {{ form.csrf_token }}
+                <p>{{ form.email.label }} {{ form.email(class="form-control") }}</p>
+                <p>{{ form.password.label }} {{ form.password(class="form-control") }}</p>
+                <p>{{ form.submit(class="btn btn-success", value="Login") }} </p>
+                <p><a href="{{ url_for('signin') }}" class="btn btn-primary">Sign in</a></p>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <h2>Sign in</h2>
+            <form action="" method="post" style="max-width: 300px">
+                {{ form.csrf_token }}
+                <p>{{ form.username.label }} {{ form.username(class="form-control") }}</p>
+                <p>{{ form.email.label }} {{ form.email(class="form-control") }}</p>
+                <p>{{ form.password.label }} {{ form.password(class="form-control") }}</p>
+                <p>{{ form.password2.label }} {{ form.password2(class="form-control") }}</p>
+                <p>{{ form.submit(class="btn btn-warning", value="Signin") }}</p>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
